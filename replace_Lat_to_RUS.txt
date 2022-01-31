@@ -1,0 +1,13 @@
+Sub Replace_Latin_to_Russian()
+    Rus = "асекорхуАСЕНКМОРТХ"
+    Eng = "acekopxyACEHKMOPTX"
+    For Each cell In Selection
+        For i = 1 To Len(cell)
+            c1 = Mid(cell, i, 1)
+            If c1 Like "[" & Eng & "]" Then
+                c2 = Mid(Rus, InStr(1, Eng, c1), 1)
+                cell.Value = Replace(cell, c1, c2)
+            End If
+        Next i
+    Next cell
+End Sub
